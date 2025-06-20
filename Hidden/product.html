@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - Village Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body{
+    background-color: black;
+    }
+    .lang-selector {
+      margin-top: 20px;
+    }
+
+    .lang-list {
+      display: flex;
+      gap: 10px;
+      margin-left: 10px;
+    }
+
+    .lang-list button {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      Village Shop
+      <span id="selectedLang" class="badge bg-light text-dark ms-2 px-2 py-1" style="font-size: 0.8rem;">English</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="product.html">Product</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Language Selection (Below Navbar) -->
+<div class="container lang-selector">
+  <div class="lang-list">
+    <strong>Select Language:</strong>
+    <button class="btn btn-outline-primary btn-sm" onclick="setLanguage('en')">English</button>
+    <button class="btn btn-outline-success btn-sm" onclick="setLanguage('ta')">தமிழ்</button>
+  </div>
+</div>
+
+<!-- Product Grid -->
+<div class="container mt-4">
+  <h2 class="text-center mb-4" id="pageTitle">Village Shop - Order Online</h2>
+
+  <div class="row g-3">
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?vegetables,organic" class="card-img-top" alt="Fresh Vegetables">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Fresh Vegetables" data-ta="பசுமை காய்கறிகள்">Fresh Vegetables</h6>
+          <p class="card-text small lang" data-en="Organically grown vegetables from village farms." data-ta="கிராமத்தில் வளர்க்கப்பட்ட ஆர்கானிக் காய்கறிகள்.">Organically grown vegetables from village farms.</p>
+          <p class="lang" data-en="₹40 / kg" data-ta="₹40 / கிலோ">₹40 / kg</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100">
+        <img src="https://source.unsplash.com/300x200/?snacks,food" class="card-img-top" alt="Snacks">
+        <div class="card-body">
+          <h6 class="card-title lang" data-en="Village Snacks" data-ta="நாட்டு ஸ்நாக்ஸ்">Village Snacks</h6>
+          <p class="card-text small lang" data-en="Homemade murukku, banana chips & more." data-ta="முறுக்கு, வாழை சிப்ஸ் உள்ளிட்ட பாரம்பரிய உணவுகள்.">Homemade murukku, banana chips & more.</p>
+          <p class="lang" data-en="₹50 / pack" data-ta="₹50 / பேக்">₹50 / pack</p>
+          <a href="#" class="btn btn-sm btn-success">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more products similarly -->
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-muted py-3 mt-4 bg-light">
+  <p>&copy; 2025 Village Shop - All Rights Reserved</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('.lang').forEach(el => {
+      const text = el.getAttribute(`data-${lang}`);
+      if (text) el.innerText = text;
+    });
+
+    const title = document.getElementById("pageTitle");
+    if (title) {
+      title.innerText = lang === 'en' ? "Village Shop - Order Online" : "விலேஜ் கடை - ஆன்லைன் ஆர்டர்";
+    }
+
+    const langLabel = document.getElementById("selectedLang");
+    if (langLabel) {
+      langLabel.innerText = lang === 'en' ? "English" : "தமிழ்";
+    }
+
+    localStorage.setItem("language", lang);
+  }
+
+  function setLanguage(lang) {
+    switchLanguage(lang);
+  }
+
+  window.onload = function () {
+    const savedLang = localStorage.getItem("language") || 'en';
+    switchLanguage(savedLang);
+  };
+</script>
+
+</body>
+</html>
