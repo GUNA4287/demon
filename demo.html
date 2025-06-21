@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Village Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { background-color: black; color: white; }
+
+    .card {
+      max-width: 250px;
+      width: 100%;
+      height: 280px;
+      border-radius: 15px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .card-img-overlay {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .card-footer {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .card-footer h6, .card-footer p {
+      color: #fff;
+      margin: 0;
+    }
+    .sticky-order-btn {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      background-color: green;
+      z-index: 1050;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Language + Category styles */
+    .lang-cat-row {
+      background-color: black;
+      padding: 15px;
+      border-radius: 5px;
+      color: white;
+    }
+    .cat-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .cat-scroll .btn {
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+    .lang-buttons button {
+      font-size: 14px;
+    }
+    @media (max-width: 991px) {
+      #categoryDropdown { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      Village Shop
+      <span id="selectedLang" class="badge bg-light text-dark ms-2 px-2 py-1" style="font-size: 0.8rem;">English</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="product.html">Product</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Language + Category Section -->
+<div class="container-fluid lang-cat-row">
+  <div class="row align-items-start">
+    <div class="col-7 col-lg-3 mb-2">
+      <strong>Language:</strong>
+      <div class="lang-buttons d-inline">
+        <button class="btn btn-outline-light btn-sm me-1" onclick="setLanguage('en')">English</button>
+        <button class="btn btn-outline-light btn-sm" onclick="setLanguage('ta')">தமிழ்</button>
+      </div>
+    </div>
+    <div class="col-5 d-lg-none text-end">
+      <button class="btn btn-outline-light btn-sm" onclick="toggleDropdown()">Categories ▼</button>
+      <div id="categoryDropdown" class="mt-2">
+        <button class="btn btn-outline-light btn-sm d-block w-100 mb-1 ms-auto" onclick="filterCategory('all')">All</button>
+        <button class="btn btn-outline-light btn-sm d-block w-100 mb-1 ms-auto" onclick="filterCategory('vegetables')">Vegetables</button>
+        <button class="btn btn-outline-light btn-sm d-block w-100 mb-1 ms-auto" onclick="filterCategory('snacks')">Snacks</button>
+        <button class="btn btn-outline-light btn-sm d-block w-100 mb-1 ms-auto" onclick="filterCategory('crafts')">Crafts</button>
+        <button class="btn btn-outline-light btn-sm d-block w-100 mb-1 ms-auto" onclick="filterCategory('dairy')">Dairy</button>
+        <button class="btn btn-outline-light btn-sm d-block w-100 mb-1 ms-auto" onclick="filterCategory('honey')">Honey</button>
+      </div>
+    </div>
+    <div class="col-12 d-none d-lg-block mt-2 mt-lg-0">
+      <div class="cat-scroll text-end">
+        <strong class="me-2">Categories:</strong>
+        <button class="btn btn-outline-light btn-sm" onclick="filterCategory('all')">All</button>
+        <button class="btn btn-outline-light btn-sm" onclick="filterCategory('vegetables')">Vegetables</button>
+        <button class="btn btn-outline-light btn-sm" onclick="filterCategory('snacks')">Snacks</button>
+        <button class="btn btn-outline-light btn-sm" onclick="filterCategory('crafts')">Crafts</button>
+        <button class="btn btn-outline-light btn-sm" onclick="filterCategory('dairy')">Dairy</button>
+        <button class="btn btn-outline-light btn-sm" onclick="filterCategory('honey')">Honey</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Product Grid -->
+<div class="container mt-4">
+  <h2 class="text-center">Village Shop - Order Online</h2>
+  <div class="row g-3">
+
+    <!-- Product 1 -->
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3 product-card" data-category="vegetables">
+      <div class="card">
+        <div class="card-img-overlay d-flex flex-column justify-content-end p-0" 
+             style="background-image: url('data/Termeric_powder.jpg');">
+          <div class="card-footer p-3">
+            <h6 class="card-title lang" data-en="Turmeric Powder" data-ta="மஞ்சள் பொடி">Turmeric Powder</h6>
+            <p class="card-details lang" data-en="₹40 / 1kg" data-ta="₹40 / 1 கிலோ">₹40 / 1kg</p>
+            <a href="#" class="btn btn-sm btn-success w-100 mt-2 order-btn" 
+               data-name-en="Turmeric Powder" 
+               data-name-ta="மஞ்சள் பொடி"
+               data-price="40" 
+               data-image="https://via.placeholder.com/200">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3 product-card" data-category="honey">
+      <div class="card">
+        <div class="card-img-overlay d-flex flex-column justify-content-end p-0" 
+             style="background-image: url('https://via.placeholder.com/201');">
+          <div class="card-footer p-3">
+            <h6 class="card-title lang" data-en="Natural Honey" data-ta="நைச்சரல் தேன்">Natural Honey</h6>
+            <p class="card-details lang" data-en="₹120 / 1kg" data-ta="₹120 / 1 கிலோ">₹120 / 1kg</p>
+            <a href="#" class="btn btn-sm btn-success w-100 mt-2 order-btn" 
+               data-name-en="Natural Honey" 
+               data-name-ta="நைச்சரல் தேன்"
+               data-price="120" 
+               data-image="https://via.placeholder.com/201">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more products here -->
+
+  </div>
+</div>
+
+<!-- Add to Cart Modal -->
+<div class="modal fade" id="addToCartModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">Add to Cart</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" class="img-fluid rounded mb-2" style="height: 150px;" />
+        <h6 id="modalName"></h6>
+        <p id="modalPrice"></p>
+        <label for="kgInput">Select KG:</label>
+        <input type="number" id="kgInput" class="form-control" min="1" value="1" onchange="calculateAmount()" />
+        <p class="mt-2">Total Amount: ₹<span id="totalAmount">0</span></p>
+        <button class="btn btn-success w-100 mt-2" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Final Order Modal -->
+<div class="modal fade" id="finalOrderModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Order Summary</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div id="orderDetailsGrid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+        <hr />
+        <div class="mb-3">
+          <label for="deliveryAddress" class="form-label">Delivery Address</label>
+          <textarea class="form-control" id="deliveryAddress" rows="3" placeholder="Enter your delivery address"></textarea>
+        </div>
+        <h6>Pay with GPay to: <strong>805674287</strong></h6>
+        <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=805674287" alt="GPay QR Code" class="img-thumbnail" />
+        <button class="btn btn-success mt-3">Confirm & Pay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Bottom Place Order Button -->
+<div class="sticky-order-btn">
+  <button class="btn btn-light" onclick="showFinalOrder()">🛒 Place Order</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let currentProduct = {};
+  let cart = [];
+
+  // Attach order button events
+  function attachOrderButtons() {
+    document.querySelectorAll('.order-btn').forEach(button => {
+      button.removeEventListener('click', orderButtonClick); // remove old handlers if any
+      button.addEventListener('click', orderButtonClick);
+    });
+  }
+
+  function orderButtonClick(e) {
+    e.preventDefault();
+    const btn = e.currentTarget;
+    const lang = localStorage.getItem('language') || 'en';
+
+    currentProduct = {
+      name: btn.getAttribute(`data-name-${lang}`) || btn.getAttribute('data-name-en'),
+      price: parseInt(btn.getAttribute('data-price')),
+      image: btn.getAttribute('data-image')
+    };
+    document.getElementById('modalImage').src = currentProduct.image;
+    document.getElementById('modalName').innerText = currentProduct.name;
+    document.getElementById('modalPrice').innerText = `₹${currentProduct.price} / 1kg`;
+    document.getElementById('kgInput').value = 1;
+    document.getElementById('totalAmount').innerText = currentProduct.price;
+
+    const modal = new bootstrap.Modal(document.getElementById('addToCartModal'));
+    modal.show();
+  }
+
+  function calculateAmount() {
+    const kg = parseInt(document.getElementById('kgInput').value);
+    const amount = kg * currentProduct.price;
+    document.getElementById('totalAmount').innerText = amount;
+  }
+
+  function addToCart() {
+    const kg = parseInt(document.getElementById('kgInput').value);
+    const total = kg * currentProduct.price;
+    cart.push({ ...currentProduct, kg, total });
+    bootstrap.Modal.getInstance(document.getElementById('addToCartModal')).hide();
+    alert('Item added to cart!');
+  }
+
+  function showFinalOrder() {
+    const container = document.getElementById('orderDetailsGrid');
+    container.innerHTML = '';
+    cart.forEach(item => {
+      container.innerHTML += `
+        <div class="col">
+          <div class="card h-100 text-black">
+            <img src="${item.image}" class="card-img-top" style="height: 150px; object-fit: cover;" />
+            <div class="card-body">
+              <h6 class="card-title">${item.name}</h6>
+              <p class="card-text">KG: ${item.kg}</p>
+              <p class="card-text">Amount: ₹${item.total}</p>
+            </div>
+          </div>
+        </div>`;
+    });
+
+    const modal = new bootstrap.Modal(document.getElementById('finalOrderModal'));
+    modal.show();
+  }
+
+  // Language functions
+  function setLanguage(lang) {
+    localStorage.setItem('language', lang);
+    document.getElementById('selectedLang').innerText = lang === 'en' ? 'English' : 'தமிழ்';
+
+    document.querySelectorAll('.lang').forEach(el => {
+      const text = el.getAttribute(`data-${lang}`);
+      if (text) el.innerText = text;
+    });
+
+    attachOrderButtons(); // Reattach to update with correct lang names
+  }
+
+  function toggleDropdown() {
+    const dropdown = document.getElementById('categoryDropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function filterCategory(category) {
+    const cards = document.querySelectorAll('.product-card');
+    cards.forEach(card => {
+      const match = card.getAttribute('data-category') === category;
+      card.style.display = (category === 'all' || match) ? 'block' : 'none';
+    });
+  }
+
+  window.onload = () => {
+    const savedLang = localStorage.getItem('language') || 'en';
+    setLanguage(savedLang);
+    document.getElementById('categoryDropdown').style.display = 'none';
+  };
+</script>
+
+</body>
+</html>
