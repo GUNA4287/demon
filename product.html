@@ -2,37 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Products - Village Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Village Shop</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    body { background-color: black; }
-
-    .lang-cat-row {
-      background-color: black;
-      padding: 15px;
-      border-radius: 5px;
-      color: white;
-    }
-
-    .cat-scroll {
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-
-    .cat-scroll .btn {
-      margin-right: 10px;
-      white-space: nowrap;
-    }
-
-    .lang-buttons button {
-      font-size: 14px;
-    }
-
-    @media (max-width: 991px) {
-      #categoryDropdown { display: none; }
-    }
-
+    body { background-color: black; color: white; }
     .card {
       max-width: 250px;
       width: 100%;
@@ -41,26 +15,58 @@
       overflow: hidden;
       border: 2px solid transparent;
       transition: all 0.3s ease;
+      background-size: cover;
     }
-
     .card-img-overlay {
-      background-size: contain;
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
-
     .card-footer {
       background-color: rgba(0, 0, 0, 0.7);
     }
-
-    .card-footer h6,
-    .card-footer p {
+    .card-footer h6, .card-footer p {
       color: #fff;
       margin: 0;
     }
-
-    .card-footer a {
-      margin-top: 8px;
+    .sticky-order-btn {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      background-color: green;
+      z-index: 1050;
+      padding: 10px;
+      text-align: center;
+    }
+    .lang-cat-row {
+      background-color: black;
+      padding: 15px;
+      border-radius: 5px;
+      color: white;
+    }
+    .cat-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .cat-scroll .btn {
+      margin-right: 10px;
+      white-space: nowrap;
+    }
+    .lang-buttons button {
+      font-size: 14px;
+    }
+    @media (max-width: 991px) {
+      #categoryDropdown { display: none; }
+    }
+    .card{
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    width: 220px;
+    height: 280px;
     }
   </style>
 </head>
@@ -125,105 +131,214 @@
 
 <!-- Product Grid -->
 <div class="container mt-4">
-  <h2 class="text-center text-white mb-4" id="pageTitle">Village Shop - Order Online</h2>
+  <h2 class="text-center">Village Shop - Order Online</h2>
   <div class="row g-3">
-    <!--vegetables items-->
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3  product-card" data-category="snacks">
-        <div class="card">
-        <div class="card-img-overlay d-flex flex-column justify-content-end p-0" style="background-image: url('data/Termeric_powder.jpg');">
+
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3 product-card" data-category="vegetables">
+      <div class="card">
+        <div class="card-img-overlay card d-flex flex-column justify-content-end p-0" style="background-image: url('data/Termeric_powder.jpg');">
           <div class="card-footer p-3">
             <h6 class="card-title lang" data-en="Turmeric Powder" data-ta="மஞ்சள் பொடி">Turmeric Powder</h6>
-            <p class="card-company lang" data-en="Brand: Sakthi" data-ta="பிராண்ட்: சக்தி">Brand: Sakthi</p>
-            <p class="card-details lang" data-en="$40 / 50gm" data-ta="₹40 / 50 கிராம்">$40 / 50gm</p>
-            <a href="#" class="btn btn-sm btn-success w-100 mt-2">Order Now</a>
+            <p class="card-details lang" data-en="₹40 / 1kg" data-ta="₹40 / 1 கிலோ">₹40 / 1kg</p>
+            <p class="card-brand">Brand: Sakthi</p>
+            <a href="#" class="btn btn-sm btn-success w-100 mt-2 order-btn" 
+               data-name-en="Turmeric Powder" 
+               data-name-ta="மஞ்சள் பொடி"
+               data-price="40" 
+               data-image="data/Termeric_powder.jpg"
+               data-brand="Sakthi">Order Now</a>
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
-    <!--snacks items-->
-    <div class="col-6 col-sm-6 col-md-4 col-lg-3  product-card" data-category="vegetables">
-        <div class="card">
-        <div class="card-img-overlay d-flex flex-column justify-content-end p-0" style="background-image: url('data/Termeric_powder.jpg');">
-          <div class="card-footer p-3">
-            <h6 class="card-title lang" data-en="Turmeric Powder55*****" data-ta="மஞ்சள் பொடி">Turmeric Powder</h6>
-            <p class="card-company lang" data-en="Brand: Sakthi" data-ta="பிராண்ட்: சக்தி">Brand: Sakthi</p>
-            <p class="card-details lang" data-en="$40 / 50gm" data-ta="₹40 / 50 கிராம்">$40 / 50gm</p>
-            <a href="#" class="btn btn-sm btn-success w-100 mt-2">Order Now</a>
-          </div>
-        </div>
-      </div>
-      </div>
-    
-    <div class="col-6 col-sm-6 col-md-4 col-lg-3  product-card" data-category="snacks">
-        <div class="card">
-        <div class="card-img-overlay d-flex flex-column justify-content-end p-0" style="background-image: url('data/Termeric_powder.jpg');">
+   <div class="col-6 col-sm-6 col-md-4 col-lg-3 product-card" data-category="vegetables">
+      <div class="card">
+        <div class="card-img-overlay card d-flex flex-column justify-content-end p-0" style="background-image: url('data/Termeric_powder.jpg');">
           <div class="card-footer p-3">
             <h6 class="card-title lang" data-en="Turmeric Powder" data-ta="மஞ்சள் பொடி">Turmeric Powder</h6>
-            <p class="card-company lang" data-en="Brand: Sakthi" data-ta="பிராண்ட்: சக்தி">Brand: Sakthi</p>
-            <p class="card-details lang" data-en="$40 / 50gm" data-ta="₹40 / 50 கிராம்">$40 / 50gm</p>
-            <a href="#" class="btn btn-sm btn-success w-100 mt-2">Order Now</a>
+            <p class="card-details lang" data-en="₹40 / 1kg" data-ta="₹40 / 1 கிலோ">₹40 / 1kg</p>
+            <p class="card-brand">Brand: Sakthi</p>
+            <a href="#" class="btn btn-sm btn-success w-100 mt-2 order-btn" 
+               data-name-en="Turmeric Powder" 
+               data-name-ta="மஞ்சள் பொடி"
+               data-price="40" 
+               data-image="data/Termeric_powder.jpg"
+               data-brand="Sakthi">Order Now</a>
           </div>
         </div>
       </div>
-      </div>
-
-      <div class="col-6 col-sm-6 col-md-4 col-lg-3  product-card" data-category="honey">
-        <div class="card">
-        <div class="card-img-overlay d-flex flex-column justify-content-end p-0" style="background-image: url('data/Termeric_powder.jpg');">
+    </div>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3 product-card" data-category="vegetables">
+      <div class="card">
+        <div class="card-img-overlay card d-flex flex-column justify-content-end p-0" style="background-image: url('data/Termeric_powder.jpg');">
           <div class="card-footer p-3">
-            <h6 class="card-title lang" data-en="honey" data-ta="மஞ்சள் பொடி">Turmeric Powder</h6>
-            <p class="card-company lang" data-en="Brand: Sakthi" data-ta="பிராண்ட்: சக்தி">Brand: Sakthi</p>
-            <p class="card-details lang" data-en="$40 / 50gm" data-ta="₹40 / 50 கிராம்">$40 / 50gm</p>
-            <a href="#" class="btn btn-sm btn-success w-100 mt-2">Order Now</a>
+            <h6 class="card-title lang" data-en="Turmeric Powder" data-ta="மஞ்சள் பொடி">Turmeric Powder</h6>
+            <p class="card-details lang" data-en="₹40 / 1kg" data-ta="₹40 / 1 கிலோ">₹40 / 1kg</p>
+            <p class="card-brand">Brand: Sakthi</p>
+            <a href="#" class="btn btn-sm btn-success w-100 mt-2 order-btn" 
+               data-name-en="Turmeric Powder" 
+               data-name-ta="மஞ்சள் பொடி"
+               data-price="40" 
+               data-image="data/Termeric_powder.jpg"
+               data-brand="Sakthi">Order Now</a>
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
-    
 
-    <!-- Repeat similar cards with appropriate data-category -->
   </div>
 </div>
 
-<!-- Footer -->
-<footer class="text-center text-muted py-3 mt-4 bg-light">
-  <p>&copy; 2025 Village Shop - All Rights Reserved</p>
-</footer>
+<!-- Add to Cart Modal -->
+<div class="modal fade" id="addToCartModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">Add to Cart</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" class="img-fluid rounded mb-2" style="height: 150px;" />
+        <h6 id="modalName"></h6>
+        <p id="modalBrand" class="text-muted small"></p>
+        <p id="modalPrice"></p>
+        <label for="kgInput">Select KG:</label>
+        <input type="number" id="kgInput" class="form-control" min="1" value="1" onchange="calculateAmount()" />
+        <p class="mt-2">Total Amount: ₹<span id="totalAmount">0</span></p>
+        <button class="btn btn-success w-100 mt-2" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Final Order Modal -->
+<div class="modal fade" id="finalOrderModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Order Summary</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div id="orderDetailsGrid" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+        <hr />
+        <div class="mb-3">
+          <label for="deliveryAddress" class="form-label">Delivery Address</label>
+          <textarea class="form-control" id="deliveryAddress" rows="3" placeholder="Enter your delivery address"></textarea>
+        </div>
+        <h6>Pay with GPay to: <strong>805674287</strong></h6>
+        <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=805674287" alt="GPay QR Code" class="img-thumbnail" />
+        <button class="btn btn-success mt-3">Confirm & Pay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Bottom Place Order Button -->
+<div class="sticky-order-btn">
+  <button class="btn btn-light" onclick="showFinalOrder()">🛒 Place Order</button>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  function setLanguage(lang) {
-    document.querySelectorAll('.lang').forEach(el => {
-      const text = el.getAttribute(`data-${lang}`);
-      if (text) el.innerText = text;
-    });
-    document.getElementById('pageTitle').innerText =
-      lang === 'en' ? 'Village Shop - Order Online' : 'விலேஜ் கடை - ஆன்லைன் ஆர்டர்';
-    document.getElementById('selectedLang').innerText =
-      lang === 'en' ? 'English' : 'தமிழ்';
-    localStorage.setItem('language', lang);
-  }
+let currentProduct = {};
+let cart = [];
 
-  function toggleDropdown() {
-    const dropdown = document.getElementById('categoryDropdown');
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-  }
+function attachOrderButtons() {
+  document.querySelectorAll('.order-btn').forEach(button => {
+    button.removeEventListener('click', orderButtonClick);
+    button.addEventListener('click', orderButtonClick);
+  });
+}
 
-  function filterCategory(category) {
-    const cards = document.querySelectorAll('.product-card');
-    cards.forEach(card => {
-      const match = card.getAttribute('data-category') === category;
-      card.style.display = (category === 'all' || match) ? 'block' : 'none';
-    });
-  }
+function orderButtonClick(e) {
+  e.preventDefault();
+  const btn = e.currentTarget;
+  const lang = localStorage.getItem('language') || 'en';
 
-  window.onload = () => {
-    const savedLang = localStorage.getItem('language') || 'en';
-    setLanguage(savedLang);
-    document.getElementById('categoryDropdown').style.display = 'none';
+  currentProduct = {
+    name: btn.getAttribute(`data-name-${lang}`) || btn.getAttribute('data-name-en'),
+    price: parseInt(btn.getAttribute('data-price')),
+    image: btn.getAttribute('data-image'),
+    brand: btn.getAttribute('data-brand') || 'N/A'
   };
+  document.getElementById('modalImage').src = currentProduct.image;
+  document.getElementById('modalName').innerText = currentProduct.name;
+  document.getElementById('modalPrice').innerText = `₹${currentProduct.price} / 1kg`;
+  document.getElementById('modalBrand').innerText = `Brand: ${currentProduct.brand}`;
+  document.getElementById('kgInput').value = 1;
+  document.getElementById('totalAmount').innerText = currentProduct.price;
+
+  const modal = new bootstrap.Modal(document.getElementById('addToCartModal'));
+  modal.show();
+}
+
+function calculateAmount() {
+  const kg = parseInt(document.getElementById('kgInput').value);
+  const amount = kg * currentProduct.price;
+  document.getElementById('totalAmount').innerText = amount;
+}
+
+function addToCart() {
+  const kg = parseInt(document.getElementById('kgInput').value);
+  const total = kg * currentProduct.price;
+  cart.push({ ...currentProduct, kg, total });
+  bootstrap.Modal.getInstance(document.getElementById('addToCartModal')).hide();
+  alert('Item added to cart!');
+}
+
+function showFinalOrder() {
+  const container = document.getElementById('orderDetailsGrid');
+  container.innerHTML = '';
+  cart.forEach(item => {
+    container.innerHTML += `
+      <div class="col">
+        <div class="card h-100 text-black">
+          <img src="${item.image}" class="card-img-top" style="height: 150px; object-fit: cover;" />
+          <div class="card-body">
+            <h6 class="card-title">${item.name}</h6>
+            <p class="card-text">Brand: ${item.brand}</p>
+            <p class="card-text">KG: ${item.kg}</p>
+            <p class="card-text">Amount: ₹${item.total}</p>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  const modal = new bootstrap.Modal(document.getElementById('finalOrderModal'));
+  modal.show();
+}
+
+function setLanguage(lang) {
+  localStorage.setItem('language', lang);
+  document.getElementById('selectedLang').innerText = lang === 'en' ? 'English' : 'தமிழ்';
+  document.querySelectorAll('.lang').forEach(el => {
+    const text = el.getAttribute(`data-${lang}`);
+    if (text) el.innerText = text;
+  });
+  attachOrderButtons();
+}
+
+function toggleDropdown() {
+  const dropdown = document.getElementById('categoryDropdown');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+function filterCategory(category) {
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(card => {
+    const match = card.getAttribute('data-category') === category;
+    card.style.display = (category === 'all' || match) ? 'block' : 'none';
+  });
+}
+
+window.onload = () => {
+  const savedLang = localStorage.getItem('language') || 'en';
+  setLanguage(savedLang);
+  document.getElementById('categoryDropdown').style.display = 'none';
+};
 </script>
 
 </body>
